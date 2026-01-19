@@ -8,7 +8,7 @@ A native macOS writing app built with Tauri + React that lets you draft in a Not
 - Store drafts locally (SQLite)
 - Publish Markdown + images to a git repo
 - Sync drafts to a `drafts` branch
-- Preview with styling aligned to `pranavhari.com`
+- Preview with styling aligned to your site (here it is aligned to my personal site @ pranavhari.com)
 
 ## How Publishing Works
 
@@ -109,4 +109,4 @@ npm run tauri build
 
 ## License
 
-MIT (or your preferred license)
+MIT
