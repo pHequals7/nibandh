@@ -585,18 +585,16 @@ CREATE INDEX idx_versions_draft ON versions(draft_id, created_at DESC);
 **Goal**: Core writing and publishing functionality
 
 **Features**:
-- [ ] Tauri app scaffold with React frontend
-- [ ] TipTap editor with basic blocks (headings, paragraphs, lists, code, images)
-- [ ] Frontmatter metadata panel (title, tags, description)
-- [ ] Image paste from clipboard
-- [ ] Single draft editing (no multi-draft yet)
-- [ ] Publish flow with git commit/push
-- [ ] Basic settings (repo path, theme toggle)
+- [x] Tauri app scaffold with React frontend
+- [x] Lexical editor with basic blocks (headings, paragraphs, lists, code, images)
+- [x] Frontmatter metadata panel (title, tags, description)
+- [x] Image paste from clipboard
+- [x] Publish flow with git commit/push
+- [x] Basic settings (repo path, theme toggle)
 
 **Not Included**:
 - Version history
 - Sync between devices
-- Preview renderer
 - Search
 - Advanced blocks (tables, callouts, embeds)
 
@@ -605,13 +603,13 @@ CREATE INDEX idx_versions_draft ON versions(draft_id, created_at DESC);
 **Goal**: Complete core experience
 
 **Features**:
-- [ ] Multi-draft support with sidebar
+- [x] Multi-draft support with sidebar
 - [ ] Auto-save versioning (5 min, 10 versions)
-- [ ] Git-based sync (drafts branch)
-- [ ] Bundled preview with site CSS
+- [x] Git-based sync (drafts branch)
+- [x] Bundled preview with site CSS (basic alignment with site styles)
 - [ ] Full-text search
-- [ ] Word count / reading time
-- [ ] Cover image upload
+- [x] Word count / reading time
+- [x] Cover image upload + reposition
 - [ ] Tag autocomplete
 - [ ] Slug confirmation on publish
 
@@ -620,7 +618,7 @@ CREATE INDEX idx_versions_draft ON versions(draft_id, created_at DESC);
 **Goal**: Polish and advanced features
 
 **Features**:
-- [ ] Full block type support (tables, callouts, collapsibles, embeds)
+- [ ] Full block type support (tables, callouts, collapsibles, embeds) — partial support exists
 - [ ] GitHub Actions build status notifications
 - [ ] Global hotkey (`Cmd+Shift+N`)
 - [ ] Onboarding flow (clone repo from URL)
