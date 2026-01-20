@@ -37,6 +37,7 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
   const [validation, setValidation] = useState<RepoValidation | null>(null);
   const [isValidating, setIsValidating] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isSyncingImages, setIsSyncingImages] = useState(false);
 
   // Sync local state when dialog opens
   useEffect(() => {
@@ -128,6 +129,32 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
       });
     } finally {
       setIsSaving(false);
+    }
+  };
+
+  const handleSyncImages = async () => {
+    if (!localRepoPath) {
+      toast.error('Repository path required', {
+        description: 'Please select a blog repository before syncing images.',
+      });
+      return;
+    }
+
+    setIsSyncingImages(true);
+    try {
+      const result = await invoke<string>('sync_public_images', {
+        repoPath: localRepoPath,
+      });
+      toast.success('Images synced', {
+        description: result,
+      });
+    } catch (error) {
+      console.error('Failed to sync images:', error);
+      toast.error('Failed to sync images', {
+        description: String(error),
+      });
+    } finally {
+      setIsSyncingImages(false);
     }
   };
 
@@ -256,6 +283,20 @@ export function SettingsDialog({ open, onOpenChange }: SettingsDialogProps) {
         </div>
 
         <DialogFooter>
+          <Button
+            variant="outline"
+            onClick={handleSyncImages}
+            disabled={!localRepoPath || isSyncingImages}
+          >
+            {isSyncingImages ? (
+              <>
+                <Loader2 size={16} className="mr-2 animate-spin" />
+                Syncing Images...
+              </>
+            ) : (
+              'Sync Images'
+            )}
+          </Button>
           <Button variant="outline" onClick={() => onOpenChange(false)}>
             Cancel
           </Button>

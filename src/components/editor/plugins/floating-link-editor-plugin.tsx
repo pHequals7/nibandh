@@ -218,20 +218,20 @@ function FloatingLinkEditor({
   return (
     <div
       ref={editorRef}
-      className="absolute top-0 left-0 w-full max-w-sm rounded-md opacity-0 shadow-md"
+      className="absolute top-0 left-0 w-full max-w-sm rounded-md opacity-0 shadow-md bg-background/95 border border-border backdrop-blur"
     >
       {!isLink ? null : isLinkEditMode ? (
-        <div className="flex items-center space-x-2 rounded-md border p-1 pl-2">
+        <div className="flex items-center space-x-2 rounded-md p-1 pl-2 text-foreground">
           <Input
             ref={inputRef}
             value={editedLinkUrl}
             onChange={(event) => setEditedLinkUrl(event.target.value)}
             onKeyDown={monitorInputInteraction}
-            className="flex-grow"
+            className="flex-grow bg-transparent text-foreground"
           />
           <Button
             size="icon"
-            variant="ghost"
+            variant="outline"
             onClick={() => {
               setIsLinkEditMode(false)
               setIsLink(false)
@@ -244,24 +244,25 @@ function FloatingLinkEditor({
             size="icon"
             onClick={handleLinkSubmission}
             className="shrink-0"
+            style={{ backgroundColor: '#18181b', color: '#fafafa' }}
           >
             <Check className="h-4 w-4" />
           </Button>
         </div>
       ) : (
-        <div className="flex items-center justify-between rounded-md border p-1 pl-2">
+        <div className="flex items-center justify-between rounded-md p-1 pl-2 text-foreground">
           <a
             href={sanitizeUrl(linkUrl)}
             target="_blank"
             rel="noopener noreferrer"
-            className="overflow-hidden text-sm text-ellipsis whitespace-nowrap"
+            className="overflow-hidden text-sm text-ellipsis whitespace-nowrap text-foreground"
           >
             {linkUrl}
           </a>
           <div className="flex">
             <Button
               size="icon"
-              variant="ghost"
+              variant="outline"
               onClick={() => {
                 setEditedLinkUrl(linkUrl)
                 setIsLinkEditMode(true)

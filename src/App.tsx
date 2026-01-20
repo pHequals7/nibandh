@@ -124,6 +124,7 @@ function App() {
           description: draft.description || '',
           cover: draft.cover || '',
           coverPosition: draft.coverPosition ?? 50,
+          updatedAt: draft.updatedAt,
           content: markdownContent,
           repoPath,
           draftId: draft.id || '',

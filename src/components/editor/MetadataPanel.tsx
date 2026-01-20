@@ -88,6 +88,20 @@ export function MetadataPanel() {
     day: 'numeric',
     year: 'numeric',
   });
+  const createdDateText = draft.createdAt
+    ? new Date(draft.createdAt).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : '';
+  const updatedDateText = draft.updatedAt
+    ? new Date(draft.updatedAt).toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric',
+      })
+    : '';
 
   const applyCoverPosition = (clientY: number) => {
     if (!coverRef.current) return;
@@ -301,6 +315,10 @@ export function MetadataPanel() {
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Calendar size={14} className="opacity-50" />
             <span>{formattedDate}</span>
+          </div>
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            {createdDateText && <span>Created {createdDateText}</span>}
+            {updatedDateText && <span>Edited {updatedDateText}</span>}
           </div>
 
           {/* Tags */}

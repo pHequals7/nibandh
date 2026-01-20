@@ -35,6 +35,7 @@ import { TwitterPlugin } from "@/components/editor/plugins/embeds/twitter-plugin
 import { YouTubePlugin } from "@/components/editor/plugins/embeds/youtube-plugin"
 import { EmojiPickerPlugin } from "@/components/editor/plugins/emoji-picker-plugin"
 import { EmojisPlugin } from "@/components/editor/plugins/emojis-plugin"
+import { FindInEditorPlugin } from "@/components/editor/plugins/find-in-editor-plugin"
 import { FloatingLinkEditorPlugin } from "@/components/editor/plugins/floating-link-editor-plugin"
 import { FloatingTextFormatToolbarPlugin } from "@/components/editor/plugins/floating-text-format-plugin"
 import { ImagesPlugin } from "@/components/editor/plugins/images-plugin"
@@ -266,6 +267,7 @@ export function Plugins({}) {
         <DragDropPastePlugin />
         <PasteImagePlugin />
         <EmojiPickerPlugin />
+        <FindInEditorPlugin />
 
         <FloatingLinkEditorPlugin
           anchorElem={floatingAnchorElem}

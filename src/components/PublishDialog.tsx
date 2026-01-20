@@ -75,6 +75,7 @@ export function PublishDialog({ onClose, onOpenSettings }: PublishDialogPropsExt
           description: draft.description,
           cover: draft.cover || '',
           coverPosition: draft.coverPosition ?? 50,
+          updatedAt: draft.updatedAt,
           content: markdown,
           commitMessage,
           repoPath: repoPath,
